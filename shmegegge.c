@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include <sys/types.h>
@@ -9,6 +10,8 @@ int main()
     int shmid;
     char *mem;
     char line[200];
+
+    printf("PID: %i\n", getpid());
 
     printf("Generating shmid....\n");
     shmid = shmget(621623, 200*sizeof(char), 0644 | IPC_CREAT);
